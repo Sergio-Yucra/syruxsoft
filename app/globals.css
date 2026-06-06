@@ -1,0 +1,167 @@
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5
+ * macrostructure: Marquee Hero · genre: atmospheric · theme: Midnight
+ * nav: N5 Floating pill · footer: Ft5 Statement
+ * audience: empresas & startups · use: solicitar consulta · tone: atmospheric · technical · luxury
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─── TOKENS: DARK (default) ─────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  /* Paper */
+  --color-paper:       oklch(10% 0.01 260);
+  --color-paper-2:     oklch(13% 0.012 260);
+  --color-paper-3:     oklch(17% 0.015 260);
+  --color-paper-4:     oklch(22% 0.018 260);
+
+  /* Ink */
+  --color-ink:         oklch(97% 0.005 260);
+  --color-ink-2:       oklch(75% 0.01  260);
+  --color-ink-3:       oklch(52% 0.012 260);
+
+  /* Accent — cyan/electric */
+  --color-accent:      oklch(72% 0.19  200);
+  --color-accent-dim:  oklch(55% 0.15  200);
+  --color-accent-glow: oklch(72% 0.19  200 / 0.18);
+
+  /* Glass */
+  --glass-bg:          oklch(100% 0 0 / 0.05);
+  --glass-border:      oklch(100% 0 0 / 0.10);
+  --glass-blur:        16px;
+
+  /* Semantic */
+  --color-focus:       var(--color-accent);
+  --color-surface:     var(--color-paper-2);
+  --color-divider:     oklch(100% 0 0 / 0.08);
+}
+
+/* ─── TOKENS: LIGHT ──────────────────────────────────────────────────── */
+[data-theme="light"] {
+  /* Paper */
+  --color-paper:       oklch(98% 0.004 260);
+  --color-paper-2:     oklch(94% 0.006 260);
+  --color-paper-3:     oklch(89% 0.008 260);
+  --color-paper-4:     oklch(83% 0.010 260);
+
+  /* Ink */
+  --color-ink:         oklch(12% 0.012 260);
+  --color-ink-2:       oklch(35% 0.015 260);
+  --color-ink-3:       oklch(55% 0.012 260);
+
+  /* Accent */
+  --color-accent:      oklch(50% 0.20  220);
+  --color-accent-dim:  oklch(40% 0.18  220);
+  --color-accent-glow: oklch(50% 0.20  220 / 0.12);
+
+  /* Glass */
+  --glass-bg:          oklch(100% 0 0 / 0.65);
+  --glass-border:      oklch(0% 0 0 / 0.08);
+  --glass-blur:        20px;
+
+  /* Semantic */
+  --color-focus:       var(--color-accent);
+  --color-surface:     var(--color-paper-2);
+  --color-divider:     oklch(0% 0 0 / 0.07);
+}
+
+/* ─── TYPOGRAPHY TOKENS ───────────────────────────────────────────────── */
+:root {
+  --font-display:  'Space Grotesk', system-ui, sans-serif;
+  --font-body:     'Space Grotesk', system-ui, sans-serif;
+  --font-mono:     'JetBrains Mono', 'Courier New', monospace;
+
+  /* Scale (4pt base) */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+  --duration-fast: 150ms;
+  --duration-mid:  300ms;
+  --duration-slow: 600ms;
+
+  /* Theme transition */
+  --theme-transition: background-color var(--duration-mid) var(--ease-out),
+                      color var(--duration-mid) var(--ease-out),
+                      border-color var(--duration-mid) var(--ease-out);
+}
+
+/* ─── RESET & BASE ────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: clip;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: var(--theme-transition);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-style: normal; /* Hallmark: NO italic headers */
+  line-height: 1.1;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img, video { max-width: 100%; display: block; }
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ─── UTILITIES ───────────────────────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.section {
+  padding: var(--space-32) 0;
+}
+
+@media (max-width: 768px) {
+  .section { padding: var(--space-20) 0; }
+  .container { padding: 0 var(--space-4); }
+}

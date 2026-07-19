@@ -46,7 +46,8 @@ export default function Hero() {
         }}
       />
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 'var(--space-12)' }}>
+        <div style={{ flex: '1 1 500px' }}>
         {/* Badge */}
         <div
           style={{
@@ -89,11 +90,11 @@ export default function Hero() {
             fontFamily: 'var(--font-display)',
             fontStyle: 'normal',
             fontWeight: 700,
-            fontSize: 'clamp(2.6rem, 7vw, 6.5rem)',
-            lineHeight: 1.02,
-            letterSpacing: '-0.04em',
+            fontSize: 'clamp(2rem, 5vw, 4rem)',
+            lineHeight: 1.1,
+            letterSpacing: '-0.03em',
             color: 'var(--color-ink)',
-            maxWidth: '14ch',
+            maxWidth: '20ch',
             marginBottom: 'var(--space-8)',
           }}
         >
@@ -194,6 +195,26 @@ export default function Hero() {
             Ver servicios
           </a>
         </div>
+        </div>
+
+        <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center', position: 'relative' }}>
+          {/* Subtle glow behind image */}
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '80%', height: '80%', background: 'var(--color-accent)', filter: 'blur(100px)', opacity: 0.15, zIndex: -1 }}></div>
+          
+          <img 
+            src="/hero_tech_illustration.png" 
+            alt="Ilustración de software" 
+            style={{ 
+              width: '100%', 
+              maxWidth: '600px', 
+              height: 'auto', 
+              borderRadius: '24px', 
+              boxShadow: '0 24px 64px rgba(0,0,0,0.15)',
+              border: '1px solid var(--glass-border)',
+              animation: 'float 6s ease-in-out infinite'
+            }} 
+          />
+        </div>
       </div>
 
       {/* Marquee */}
@@ -246,6 +267,10 @@ export default function Hero() {
       </div>
 
       <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-16px); }
+        }
         @keyframes pulse {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.3; }
